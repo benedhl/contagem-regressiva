@@ -267,7 +267,7 @@
   
   <div class="container">
     <h1>🏖️ Férias MERECIDAS</h1>
-    <p class="subtitle">Finalmente chegou a hora de relaxar! ☀️</p>
+    <p class="subtitle" id="subtitle">Falta pouco para relaxar! 🏖️</p>
     
     <div class="countdown" id="countdown">
       <div class="time-box">
@@ -357,6 +357,7 @@
       const diff = endDate - now;
 
       if (diff <= 0) {
+        document.getElementById("subtitle").innerHTML = "Finalmente chegou a hora de relaxar! ☀️";
         document.getElementById("countdown").innerHTML = `
           <div style="font-size: 3rem; animation: bounce 1s infinite;">
             🎉 CHEGARAM AS FÉRIAS! 🎉
