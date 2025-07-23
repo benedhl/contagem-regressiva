@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador Regressivo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .countdown {
+      font-size: 3rem;
+      margin-top: 30px;
+    }
+
+    .label {
+      font-size: 1rem;
+      color: #aaaaaa;
+    }
+
+    .time-box {
+      display: inline-block;
+      margin: 0 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contagem Regressiva para 15/09/2025</h1>
+  <div class="countdown" id="countdown">
+    <div class="time-box">
+      <div id="days">--</div>
+      <div class="label">Dias</div>
+    </div>
+    <div class="time-box">
+      <div id="hours">--</div>
+      <div class="label">Horas</div>
+    </div>
+    <div class="time-box">
+      <div id="minutes">--</div>
+      <div class="label">Minutos</div>
+    </div>
+    <div class="time-box">
+      <div id="seconds">--</div>
+      <div class="label">Segundos</div>
+    </div>
+  </div>
+
+  <script>
+    const countdown = () => {
+      const endDate = new Date("2025-09-15T00:00:00");
+      const now = new Date();
+      const diff = endDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "<strong>Chegou o grande dia!</strong>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    };
+
+    setInterval(countdown, 1000);
+    countdown(); // inicializa imediatamente
+  </script>
+</body>
+</html>
